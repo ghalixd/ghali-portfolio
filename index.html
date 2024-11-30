@@ -9,6 +9,30 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
+    <audio id="background-audio" loop>
+      <source src="assets/music-file.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+      const audio = document.getElementById("background-audio");
+    
+      // Attempt to autoplay when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        audio.play().catch((error) => {
+          console.log("Autoplay blocked. Waiting for user interaction.");
+        });
+      });
+    
+      // Play audio on user interaction (click anywhere)
+      document.addEventListener("click", () => {
+        audio.play().then(() => {
+          console.log("Audio started.");
+        }).catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+      });
+    </script>
+  
     
     <nav id="desktop-nav">
       <div class="logo">Oussama Ghali.</div>
@@ -39,7 +63,7 @@
     </nav>
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
+        <img src="./assets/profile-pic.png"  />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
@@ -240,7 +264,6 @@
               </button>
             </div>
           </div>
-        
         </div>
       </div>
       <img
